@@ -1,0 +1,1354 @@
+
+/d
+
+
+
+
+
+
+
+
+\d
+\d countries
+    SELECT
+      name,
+      gdp / population AS per_capita_gdp
+    FROM
+      countries
+    WHERE
+      area > 5000000
+;
+    SELECT
+      name,
+      continent
+    FROM
+      countries
+    WHERE
+      area < 2000 AND gdp > 5000000000;
+\d countries
+/?
+\?
+\d countries
+SELECT * FROM countries
+;
+SELECT * FROM countries;
+SELECT * FROM countries;
+SELECT * FROM countries
+WHERE name LIKE denmark
+;
+SELECT * FROM countries
+WHERE name LIKE 'denmark';
+SELECT * FROM countries
+WHERE name LIKE 'denmark';
+SELECT * FROM countries
+WHERE name LIKE 'sweden';
+SELECT * FROM countries
+WHERE name LIKE 'Sweden';
+    SELECT
+      name,
+      population
+    FROM
+      countries
+    WHERE
+      name LIKE "Denmark" OR "Finland" OR "Norway" OR "Sweden";
+    SELECT
+      name,
+      population
+    FROM
+      countries
+    WHERE
+      name LIKE 'Denmark' OR 'Finland' OR 'Norway' OR 'Sweden';
+    SELECT
+      name,
+      population
+    FROM
+      countries
+    WHERE
+      name LIKE 'Denmark' OR
+      name LIKE 'Finland' OR
+      name LIKE 'Norway' OR
+      name LIKE 'Sweden';
+    SELECT
+      name
+    FROM
+      countries
+    WHERE
+      name LIKE 'G%';
+\d
+\d countries
+    SELECT
+      name,
+      area / 1000 AS 1000s_of_sq_KM
+    WHERE
+      area BETWEEN 200000 AND 250000;
+    SELECT
+      name,
+      area / 1000 AS Thousands_of_sq_KM
+    WHERE
+      area BETWEEN 200000 AND 250000;
+    SELECT
+      name,
+      area / 1000 AS Thousands_of_sq_KM
+    FROM
+      countries
+    WHERE
+      area BETWEEN 200000 AND 250000
+;
+\q
+
+\d countries
+    SELECT
+      name
+    FROM
+      countries
+    WHERE
+      population >= 200000000;
+    SELECT
+      name,
+      gdp / population AS per_capita_gdp
+    FROM
+      countries
+    WHERE
+      population >= 200000000;
+    SELECT
+      name
+      population / 1000000 AS population_in_millions
+    FROM
+      countries
+    WHERE
+      continent LIKE 'South America';
+    SELECT
+      name
+      population / 1000000 AS population_in_millions
+    FROM
+      countries
+    WHERE
+      continent LIKE 'South America';
+    SELECT
+      name,
+      population / 1000000 AS population_in_millions
+    FROM
+      countries
+    WHERE
+      continent LIKE 'South America'
+;
+    SELECT
+      name,
+      population
+    FROM
+      countries
+    WHERE
+      name LIKE 'France' OR
+      name LIKE 'Germany' OR
+      name LIKE 'Italy';
+    SELECT
+      name
+    FROM
+      countries
+    WHERE
+      name LIKE 'United%';
+\d nobel
+\d nobels
+    SELECT
+      *
+    FROM
+      nobels
+    WHERE
+      yr = 1950;
+  SELECT
+    *
+  FROM
+    nobels
+  WHERE
+    yr = 1962 AND
+    subject LIKE 'Literature'
+;
+  SELECT
+    year,
+    subject
+  FROM
+    nobels
+  WHERE
+    winner LIKE 'Albert Einstein';
+  SELECT
+    yr,
+    subject
+  FROM
+    nobels
+  WHERE
+    winner LIKE 'Albert Einstein'
+;
+  SELECT
+    name
+  FROM
+    nobels
+  WHERE
+    yr >= 2000 AND
+    subject LIKE 'Peace';
+  SELECT
+    winner
+  FROM
+    nobels
+  WHERE
+    yr >= 2000 AND
+    subject LIKE 'Peace';
+  SELECT
+    *
+  FROM
+    nobels
+  WHERE
+    yr BETWEEN 1980 AND 1989
+    subject LIKE 'Literature';
+  SELECT
+    *
+  FROM
+    nobels
+  WHERE
+    yr BETWEEN 1980 AND 1989 AND
+    subject LIKE 'Literature'
+;
+  SELECT
+    *
+  FROM
+    nobels
+  WHERE
+    winner LIKE 'Theodore Roosevelt' OR
+    winner LIKE 'Woodrow Wilson' OR
+    winner LIKE 'Jimmy Carter';
+  SELECT
+    winner
+  FROM
+    nobels
+  WHERE
+    winner LIKE 'John%';
+  SELECT
+    name
+  FROM
+    countries
+  WHERE
+    population > (
+      SELECT
+        population
+      FROM
+        countries
+      WHERE
+        name='Russia'
+      );
+  SELECT
+    name
+  FROM
+    countries
+  WHERE
+    continent LIKE 'Europe' AND
+    gdp / population > (
+      SELECT
+        gdp / population
+      FROM
+        countries
+      WHERE
+        name='United Kingdom'
+      );
+  SELECT
+    name,
+    continent
+  FROM
+    countries
+  WHERE
+    continent IN (
+      SELECT
+        DISTINCT continent
+      FROM
+        countries
+      WHERE
+        name LIKE 'Belize' OR
+        name LIKE 'Belgium'
+    );
+    SELECT
+      name,
+      population
+    FROM
+      countries
+    WHERE
+      population BETWEEN (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name LIKE 'Poland'
+      ) AND (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name LIKE 'Canada'
+      )
+;
+  SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name LIKE 'Canada'
+;
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name LIKE 'Poland'
+;
+    SELECT
+      name,
+      population
+    FROM
+      countries
+    WHERE
+      population BETWEEN (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name LIKE 'Poland'
+      ) AND (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name LIKE 'Canada'
+      );
+    SELECT
+      name,
+      population
+    FROM
+      countries
+    WHERE
+      population > (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name LIKE 'Poland'
+      ) AND
+      population < (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name LIKE 'Canada'
+      )
+;
+    SELECT
+      name,
+      population
+    FROM
+      countries
+    WHERE
+      population BETWEEN 32000000 AND 38500000
+;
+    SELECT
+      name,
+      population
+    FROM
+      countries
+    WHERE
+      population BETWEEN 32000000 AND 38500000
+;
+    SELECT
+      name,
+      population
+    FROM
+      countries
+    WHERE
+      -- population BETWEEN 32000000 AND 38500000
+      population > (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name = 'Poland'
+      ) AND
+      population < (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name = 'Canada'
+      )
+;
+    SELECT
+      name,
+      population
+    FROM
+      countries
+    WHERE
+      -- population BETWEEN 32000000 AND 38500000
+      population BETWEEN (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name = 'Poland'
+      ) AND (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name = 'Canada'
+      )
+;
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name = 'Poland'
+;
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name = 'Canada';
+  SELECT
+      name,
+      population
+    FROM
+      countries
+    WHERE
+      -- population BETWEEN 32000000 AND 38500000
+      population IN BETWEEN (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name = 'Poland'
+      ) AND (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name = 'Canada'
+      )
+;
+    SELECT
+      name,
+      population
+    FROM
+      countries
+    WHERE
+      -- population BETWEEN 32000000 AND 38500000
+      population BETWEEN (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name = 'Canada'
+      ) AND (
+        SELECT
+          population
+        FROM
+          countries
+        WHERE
+          name = 'Poland'
+      )
+;
+    SELECT
+      name,
+      contintent,
+      population
+    FROM
+      countries
+    WHERE
+      continent IN (
+        SELECT
+          continent
+        FROM
+          countries
+        WHERE
+          MAX(population) < 25000000
+      )
+;
+    SELECT
+      name,
+      continent,
+      population
+    FROM
+      countries
+    WHERE
+      continent IN (
+        SELECT
+          continent
+        FROM
+          countries
+        WHERE
+          MAX(population) < 25000000
+      );
+    SELECT
+      name,
+      continent,
+      population
+    FROM
+      countries
+    WHERE
+      continent IN (
+        SELECT
+          continent,
+          MAX(population) AS max_pop
+        FROM
+          countries
+        WHERE
+          max_pop < 25000000
+        GROUP BY
+          continent
+      )
+;
+    SELECT
+      name,
+      continent,
+      population
+    FROM
+      countries
+    WHERE
+      continent IN (
+        SELECT
+          continent,
+          MAX(population)
+        FROM
+          countries
+        WHERE
+          MAX(population) < 25000000
+        GROUP BY
+          continent
+      )
+;
+        SELECT
+          continent,
+          MAX(population)
+        FROM
+          countries
+        GROUP BY
+          continent
+;
+      SELECT
+          continent,
+          MAX(population)
+        FROM
+          countries
+        WHERE
+          max < 25000000
+        GROUP BY
+          continent
+;
+        SELECT
+          continent,
+          MAX(population)
+        FROM
+          countries
+        WHERE
+          population < 25000000
+        GROUP BY
+          continent;
+    SELECT
+      name,
+      continent,
+      population
+    FROM
+      countries
+    WHERE
+      continent IN (
+        SELECT
+          continent
+        FROM (
+          SELECT
+            continent,
+            MAX(population) AS max
+          FROM
+            countries
+          GROUP BY
+            continent
+        )
+        WHERE
+          max < 25000000
+      );
+    SELECT
+      name,
+      continent,
+      population
+    FROM
+      countries
+    WHERE
+      continent IN (
+        SELECT
+          continent
+        FROM (
+          SELECT
+            continent,
+            MAX(population) AS max
+          FROM
+            countries
+          GROUP BY
+            continent
+        ) AS cont_max_pop
+        WHERE
+          max < 25000000
+      );
+    SELECT
+      DISTINCT continent
+    FROM
+      countries
+;
+  SELECT
+    SUM(gdp)
+  FROM
+    countries
+  WHERE
+    name LIKE 'Africa'
+  ORDER BY
+    contintent
+;
+  SELECT
+    SUM(gdp)
+  FROM
+    countries
+  WHERE
+    name LIKE 'Africa'
+  ORDER BY
+    continent;
+  SELECT
+    continent,
+    SUM(gdp)
+  FROM
+    countries
+  WHERE
+    name LIKE 'Africa'
+  ORDER BY
+    continent;
+\d countries
+  SELECT
+    SUM(gdp)
+  FROM
+    countries
+  WHERE
+    continent LIKE 'Africa';
+  SELECT
+    COUNT(*)
+  FROM
+    countries
+  WHERE
+    area > 1000000;
+  SELECT
+    SUM(population)
+  FROM
+    countries
+  WHERE
+    name LIKE 'France' OR
+    name LIKE 'Germany' OR
+    name LIKE 'Spain';
+  SELECT
+    continent,
+    COUNT(*)
+  FROM
+    countries
+  GROUP BY
+    continent;
+  SELECT
+    continent,
+    COUNT(*)
+  FROM
+    countries
+  WHERE
+    population >= 10000000
+  GROUP BY
+    continent;
+  SELECT
+    continent
+  FROM
+    (
+      SELECT
+        SUM(population) = total_pop
+      FROM
+        countries
+      GROUP BY
+        continent
+    )
+  WHERE
+    total_pop >= 100000000;
+  SELECT
+    continent
+  FROM
+    (
+      SELECT
+        SUM(population) = total_pop
+      FROM
+        countries
+      GROUP BY
+        continent
+    ) AS t_pop_by_continent
+  WHERE
+    total_pop >= 100000000;
+  SELECT
+    continent
+  FROM
+    (
+      SELECT
+        SUM(population) AS total_pop
+      FROM
+        countries
+      GROUP BY
+        continent
+    ) AS t_pop_by_continent
+  WHERE
+    total_pop >= 100000000;
+  SELECT
+    continent
+  FROM
+    (
+      SELECT
+        continent
+        SUM(population) AS total_pop
+      FROM
+        countries
+      GROUP BY
+        continent
+    ) AS t_pop_by_continent
+  WHERE
+    total_pop >= 100000000;
+  SELECT
+    continent
+  FROM
+    (
+      SELECT
+        continent,
+        SUM(population) AS total_pop
+      FROM
+        countries
+      GROUP BY
+        continent
+    ) AS t_pop_by_continent
+  WHERE
+    total_pop >= 100000000;
+\d movies
+  SELECT
+    id,
+    title
+  FROM
+    movies
+  WHERE
+    yr = 1962;
+  SELECT
+    yr
+  FROM
+    movies
+  WHERE
+    title LIKE 'Citizen Kane';
+  SELECT
+    id,
+    title,
+    yr
+  FROM
+    movies
+  WHERE
+    title LIKE '%Star Trek%';
+  SELECT
+    title
+  FROM
+    movies
+  WHERE
+    id = 1119 OR
+    id = 1595 OR
+    id = 1768;
+\d
+\d actors
+  SELECT
+    id
+  FROM
+    actors
+  WHERE
+    name LIKE 'Glenn Close';
+  SELECT
+    id
+  FROM
+    movies
+  WHERE
+    name LIKE 'Casabalnca';
+  SELECT
+    id
+  FROM
+    movies
+  WHERE
+    title LIKE 'Casabalnca';
+  SELECT
+    id
+  FROM
+    movies
+  WHERE
+    title LIKE 'Casablanca';
+\d castings
+SELECT * FROM castings
+;
+  SELECT
+    name
+  FROM
+    actors
+    JOIN castings
+      ON actors.id = castings.actor_id
+  WHERE
+    castings.movie_id = 27;
+\d movies
+  SELECT
+    name
+  FROM
+    actors
+    JOIN castings
+      ON actors.id = castings.actor_id
+    JOIN movies
+      ON movies.id = castings.actor_id
+  WHERE
+    movies.title LIKE 'Alien';
+  SELECT
+    name
+  FROM
+    actors
+    JOIN castings
+      ON actors.id = castings.actor_id
+    JOIN movies
+      ON movies.id = castings.movie_id
+  WHERE
+    movies.title LIKE 'Alien';
+  SELECT
+    title
+  FROM
+    movies
+    JOIN castings
+      ON actors.id = castings.movie_id
+    JOIN actors
+      ON movies.id = castings.actor_id
+  WHERE
+    actors.name LIKE 'Harrison Ford';
+  SELECT
+    title
+  FROM
+    movies
+    JOIN castings
+      ON movies.id = castings.movie_id
+    JOIN actors
+      ON actor.id = castings.actor_id
+  WHERE
+    actors.name LIKE 'Harrison Ford';
+  SELECT
+    title
+  FROM
+    movies
+    JOIN castings
+      ON movies.id = castings.movie_id
+    JOIN actors
+      ON actors.id = castings.actor_id
+  WHERE
+    actors.name LIKE 'Harrison Ford';
+  SELECT
+    title
+  FROM
+    movies
+    JOIN castings
+      ON movies.id = castings.movie_id
+    JOIN actors
+      ON actors.id = castings.actor_id
+  WHERE
+    actors.name LIKE 'Harrison Ford' AND
+    castings.ord > 1;
+  SELECT
+    title,
+    name
+  FROM
+    movies
+    JOIN castings
+      ON movies.id = castings.movie_id
+    JOIN actors
+      ON actors.id = castings.actor_id
+  WHERE
+    movies.yr = 1962 AND
+    castings.ord = 1;
+  SELECT
+    yr,
+    COUNT(*)
+  FROM
+    movies
+    JOIN castings
+      ON movies.id = castings.movie_id
+    JOIN actors
+      ON actors.id = castings.actor_id
+  WHERE
+    actors.name LIKE 'John Travolta'
+  GROUP BY
+    yr;
+  SELECT
+    yr,
+    movie_count
+  FROM (
+    SELECT
+      yr,
+      COUNT(*) AS movie_count
+    FROM
+      movies
+      JOIN castings
+        ON movies.id = castings.movie_id
+      JOIN actors
+        ON actors.id = castings.actor_id
+    WHERE
+      actors.name LIKE 'John Travolta'
+    GROUP BY
+      yr
+    ) AS sat_night_subquery
+  WHERE
+    movie_count > 1;
+SELECT
+    title,
+    actors.name
+  FROM (
+    SELECT
+      title,
+      actors.name,
+      castings.ord
+      FROM
+        movies
+        JOIN castings
+          ON movies.id = castings.movie_id
+        JOIN actors
+          ON actors.id = castings.actor_id
+      WHERE
+        movies.id IN (
+          SELECT
+            castings.movie_id
+          FROM
+            actors
+            JOIN castings
+              ON actors.id = castings.actor_id
+          WHERE
+            name LIKE 'Julie Andrews'
+          )
+        ) AS J_A_Costars
+        WHERE
+          castings.ord = 1;
+  SELECT
+    title,
+    actor
+  FROM (
+    SELECT
+      title,
+      actors.name AS actor,
+      castings.ord AS star_ord
+      FROM
+        movies
+        JOIN castings
+          ON movies.id = castings.movie_id
+        JOIN actors
+          ON actors.id = castings.actor_id
+      WHERE
+        movies.id IN (
+          SELECT
+            castings.movie_id
+          FROM
+            actors
+            JOIN castings
+              ON actors.id = castings.actor_id
+          WHERE
+            name LIKE 'Julie Andrews'
+          )
+        ) AS J_A_Costars
+        WHERE
+          star_ord = 1;
+  SELECT
+    title
+  FROM
+    movies
+    JOIN castings
+      ON movies.id = castings.movie_id
+    JOIN actors
+      ON actors.id = castings.actor_id
+  WHERE
+    actors.name LIKE 'Julie Andrews'
+;
+SELECT
+      title,
+      actors.name AS actor,
+      castings.ord AS star_ord
+      FROM
+        movies
+        JOIN castings
+          ON movies.id = castings.movie_id
+        JOIN actors
+          ON actors.id = castings.actor_id
+      WHERE
+        movies.id IN (
+          SELECT
+            castings.movie_id
+          FROM
+            actors
+            JOIN castings
+              ON actors.id = castings.actor_id
+          WHERE
+            name LIKE 'Julie Andrews'
+          );
+  SELECT
+        actors.name AS actor_name,
+        COUNT(*)
+      FROM
+        actors
+        JOIN castings
+          ON actors.id = castings.actor_id
+      WHERE 
+        castings.ord = 1
+      GROUP BY 
+        actors.name;
+    SELECT
+      actor_name
+    FROM (
+      SELECT
+        actors.name AS actor_name,
+        COUNT(*) AS lead_count
+      FROM
+        actors
+        JOIN castings
+          ON actors.id = castings.actor_id
+      WHERE
+        castings.ord = 1
+      GROUP BY
+        actors.name
+    ) AS leading_role_count
+    WHERE
+      lead_count >= 15
+    ORDER BY
+      actor_name;
+    SELECT
+      movies.title AS film_title,
+      COUNT(*)
+    FROM
+      movies
+      JOIN castings
+        ON movies.id = castings.movie_id
+      JOIN actors
+        ON actors.id = castings.actor_id
+    WHERE
+      movies.yr = 1978
+    GROUP BY
+      movies.id;
+  SELECT
+    film_title
+  FROM (
+    SELECT
+      movies.title AS film_title,
+      COUNT(*) = actor_count
+    FROM
+      movies
+      JOIN castings
+        ON movies.id = castings.movie_id
+      JOIN actors
+        ON actors.id = castings.actor_id
+    WHERE
+      movies.yr = 1978
+    GROUP BY
+      movies.id
+  ) AS actor_count_1978
+  ORDER BY actor_count DESC
+  ORDER BY film_title;
+  SELECT
+    film_title
+  FROM (
+    SELECT
+      movies.title AS film_title,
+      COUNT(*) = actor_count
+    FROM
+      movies
+      JOIN castings
+        ON movies.id = castings.movie_id
+      JOIN actors
+        ON actors.id = castings.actor_id
+    WHERE
+      movies.yr = 1978
+    GROUP BY
+      movies.id
+  ) AS actor_count_1978
+  ORDER BY actor_count DESC AND
+  ORDER BY film_title;
+    SELECT
+      movies.title AS film_title,
+      COUNT(*) = actor_count
+    FROM
+      movies
+      JOIN castings
+        ON movies.id = castings.movie_id
+      JOIN actors
+        ON actors.id = castings.actor_id
+    WHERE
+      movies.yr = 1978
+    GROUP BY
+      movies.id
+    ORDER BY
+      actor_count DESC;
+    SELECT
+      movies.title AS film_title,
+      COUNT(*) AS actor_count
+    FROM
+      movies
+      JOIN castings
+        ON movies.id = castings.movie_id
+      JOIN actors
+        ON actors.id = castings.actor_id
+    WHERE
+      movies.yr = 1978
+    GROUP BY
+      movies.id
+    ORDER BY
+      actor_count DESC;
+  SELECT
+    film_title
+  FROM (
+    SELECT
+      movies.title AS film_title,
+      COUNT(*) AS actor_count
+    FROM
+      movies
+      JOIN castings
+        ON movies.id = castings.movie_id
+      JOIN actors
+        ON actors.id = castings.actor_id
+    WHERE
+      movies.yr = 1978
+    GROUP BY
+      movies.id
+    ORDER BY
+      actor_count DESC
+  ) AS actor_count_1978
+  ORDER BY film_title;
+  SELECT
+    film_title
+  FROM (
+    SELECT
+      movies.title AS film_title,
+      COUNT(*) AS actor_count
+    FROM
+      movies
+      JOIN castings
+        ON movies.id = castings.movie_id
+      JOIN actors
+        ON actors.id = castings.actor_id
+    WHERE
+      movies.yr = 1978
+    GROUP BY
+      movies.id
+  ) AS actor_count_1978
+  ORDER BY
+    actor_count DESC,
+    film_title;
+SELECT * FROM actors WHERE name LIKE 'Art%'
+;
+      SELECT
+        movie_id
+      FROM
+        castings
+        JOIN actors
+          ON actors.id = castings.actor_id
+      WHERE
+          actors.name LIKE 'Art Garfunkel';
+  SELECT
+    actors.name
+  FROM
+    actors
+    JOIN castings
+      ON actors.id = castings.actor_id
+  WHERE
+    castings.movie_id IN (
+      SELECT
+        movie_id
+      FROM
+        castings
+        JOIN actors
+          ON actors.id = castings.actor_id
+      WHERE
+          actors.name LIKE 'Art Garfunkel');
+  SELECT
+    actors.name
+  FROM
+    actors
+    JOIN castings
+      ON actors.id = castings.actor_id
+  WHERE
+    castings.movie_id IN (
+      SELECT
+        movie_id
+      FROM
+        castings
+        JOIN actors
+          ON actors.id = castings.actor_id
+      WHERE
+          actors.name LIKE 'Art Garfunkel');
+\d teachers
+\d depts
+    SELECT
+      name
+    FROM
+      teachers
+    where
+      dept_id IS NULL;
+  SELECT
+    name,
+    dept.name
+  FROM
+    teachers
+    LEFT JOIN depts
+      ON teachers.dept_id = depts.id
+  where
+    dept_id IS NULL;
+  SELECT
+    name,
+    dept.name
+  FROM
+    teachers
+    LEFT JOIN depts
+      ON teachers.dept_id = depts.id
+  where
+    dept_id IS NULL;
+  SELECT
+    teachers.name,
+    dept.name
+  FROM
+    teachers
+    LEFT JOIN depts
+      ON teachers.dept_id = depts.id
+  where
+    dept_id IS NULL;
+  SELECT
+    teachers.name,
+    depts.name
+  FROM
+    teachers
+    LEFT JOIN depts
+      ON teachers.dept_id = depts.id
+  where
+    dept_id IS NULL;
+  SELECT
+    teachers.name,
+    depts.name
+  FROM
+    teachers
+    LEFT OUTER JOIN depts
+      ON teachers.dept_id = depts.id
+  where
+    dept_id IS NULL;
+  SELECT
+    teachers.name,
+    depts.name
+  FROM
+    teachers
+    LEFT JOIN depts
+      ON teachers.dept_id = depts.id;
+SELECT * FROM teachers
+;
+    SELECT
+      teachers.name,
+      depts.name
+    FROM
+      depts
+      LEFT JOIN teachers
+        ON teachers.dept_id = depts.id;
+  SELECT
+    name,
+    COALESCE(mobile, '07986 444 226')
+  FROM
+    teachers;
+  SELECT
+    teachers.name,
+    COALESCE(depts.name, 'None')
+  FROM
+    teachers
+    LEFT JOIN depts
+      ON teachers.dept_id = depts.id;
+  SELECT
+    COUNT(name),
+    COUNT(mobile)
+  FROM
+    teachers;
+  SELECT
+    COUNT(name),
+    COUNT(mobile)
+  FROM
+    teachers;
+  SELECT
+    COUNT(name) AS teacher_count,
+    COUNT(mobile) AS mobile_count
+  FROM
+    teachers;
+  SELECT
+    depts.name
+    COUNT(*)
+  FROM
+    depts
+    LEFT JOIN teachers
+      ON teachers.dept_id = depts.id
+  GROUP BY dept.name;
+  SELECT
+    depts.name,
+    COUNT(*)
+  FROM
+    depts
+    LEFT JOIN teachers
+      ON teachers.dept_id = depts.id
+  GROUP BY dept.name;
+  SELECT
+    depts.name,
+    COUNT(*)
+  FROM
+    depts
+    LEFT JOIN teachers
+      ON teachers.dept_id = depts.id
+  GROUP BY depts.name;
+    SELECT
+      teachers.name,
+      depts.name
+    FROM
+      depts
+      LEFT JOIN teachers
+        ON teachers.dept_id = depts.id;
+  SELECT
+    depts.name,
+    COUNT(teachers.name)
+  FROM
+    depts
+    LEFT JOIN teachers
+      ON teachers.dept_id = depts.id
+  GROUP BY depts.name;
+\d teachers
+  SELECT
+    name,
+    CASE
+      WHEN dept_id BETWEEN 1 AND 2
+        THEN 'Sci'
+      ELSE 'Art'
+      END AS dept_category
+    FROM teachers;
+  SELECT
+    name,
+    CASE
+      WHEN dept_id BETWEEN 1 AND 2
+        THEN 'Sci'
+      WHEN dept_id = 3
+        THEN 'Art'
+      ELSE 'None'
+      END AS dept_category
+    FROM teachers;
+SELECT * FROM teachers;
+\d stops
+\s routes
